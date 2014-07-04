@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,17 +22,17 @@ namespace POSTagger.Corpora.BrillsEnglish
 
         private List<List<string>> LoadTagMap()
         {
-            return LoadJsonFile<TagMapDTO>("Corpora/BrillsEnglish/BrillsTagMap.json").TagMap;
+            return LoadJsonFile<TagMapDTO>(Properties.Resources.BrillsTagMap).TagMap;
         }
 
         private Dictionary<string, int> LoadWordMap()
         {
-            return LoadJsonFile<Dictionary<string, int>>("Corpora/BrillsEnglish/BrillsWordMap.json");
+            return LoadJsonFile<Dictionary<string, int>>(Properties.Resources.BrillsWordMap);
         }
 
-        private T LoadJsonFile<T>(string path)
+        private T LoadJsonFile<T>(byte[] resourceData)
         {
-            using (StreamReader r = new StreamReader(path))
+            using (StreamReader r = new StreamReader(new MemoryStream(resourceData), Encoding.Default))
             {
                 string json = r.ReadToEnd();
                 return JsonConvert.DeserializeObject<T>(json);

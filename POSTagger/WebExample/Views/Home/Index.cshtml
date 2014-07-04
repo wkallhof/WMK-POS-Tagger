@@ -1,7 +1,17 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@model WebExample.Models.TaggerViewModel
+
+<h2>C# Part of Speech Tagger</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.TextAreaFor(x => Model.Text)
+    <input type="submit" value="Tag">
 }
 
-<h2>Index</h2>
-
+@if (!string.IsNullOrWhiteSpace(ViewBag.Results))
+{
+    <h3>Tag Results</h3>
+    @ViewBag.Results
+}
