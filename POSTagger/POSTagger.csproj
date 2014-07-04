@@ -43,18 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lexicons\LexiconFactory.cs" />
-    <Compile Include="Models\LexiconEntry.cs" />
-    <Compile Include="Lexicons\BrillsEnglish\BrillsEnglishLexicon.cs" />
-    <Compile Include="Lexicons\Lexicon.cs" />
+    <Compile Include="Corpora\CorpusFactory.cs" />
+    <Compile Include="Corpora\CorpusEntry.cs" />
+    <Compile Include="Corpora\BrillsEnglish\BrillsEnglishCorpus.cs" />
+    <Compile Include="Corpora\Corpus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tagger.cs" />
+    <Compile Include="Taggers\Simple\SimpleTagger.cs" />
+    <Compile Include="Taggers\ITagger.cs" />
+    <Compile Include="Taggers\TaggerFactory.cs" />
+    <Compile Include="Taggers\TaggerResult.cs" />
+    <Compile Include="Tokenizers\Simple\SimpleTokenizer.cs" />
+    <Compile Include="Tokenizers\ITokenizer.cs" />
+    <Compile Include="Tokenizers\TokenizerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Lexicons\BrillsEnglish\BrillsTagMap.json">
+    <None Include="Corpora\BrillsEnglish\BrillsTagMap.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Lexicons\BrillsEnglish\BrillsWordMap.json">
+    <None Include="Corpora\BrillsEnglish\BrillsWordMap.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

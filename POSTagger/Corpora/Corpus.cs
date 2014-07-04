@@ -1,9 +1,8 @@
-﻿using POSTagger.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace POSTagger.Lexicons
+namespace POSTagger.Corpora
 {
-    public abstract class Lexicon
+    public abstract class Corpus
     {
         public Dictionary<string,int> WordMap { get; set; }
         public List<List<string>> TagMap { get; set; }

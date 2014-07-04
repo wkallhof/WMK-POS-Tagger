@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using POSTagger.Models;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -9,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POSTagger.Lexicons.BrillsEnglish
+namespace POSTagger.Corpora.BrillsEnglish
 {
-    public class BrillsEnglishLexicon : Lexicon
+    public class BrillsEnglishCorpus : Corpus
     {
-        public BrillsEnglishLexicon()
+        public BrillsEnglishCorpus()
         {
             this.WordMap = this.LoadWordMap();
             this.TagMap = this.LoadTagMap();
@@ -21,12 +20,12 @@ namespace POSTagger.Lexicons.BrillsEnglish
 
         private List<List<string>> LoadTagMap()
         {
-            return LoadJsonFile<TagMapDTO>("Lexicons/BrillsEnglish/BrillsTagMap.json").TagMap;
+            return LoadJsonFile<TagMapDTO>("Corpora/BrillsEnglish/BrillsTagMap.json").TagMap;
         }
 
         private Dictionary<string, int> LoadWordMap()
         {
-            return LoadJsonFile<Dictionary<string, int>>("Lexicons/BrillsEnglish/BrillsWordMap.json");
+            return LoadJsonFile<Dictionary<string, int>>("Corpora/BrillsEnglish/BrillsWordMap.json");
         }
 
         private T LoadJsonFile<T>(string path)

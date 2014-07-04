@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POSTagger.Models
+namespace POSTagger.Corpora
 {
-    public class LexiconEntry
+    public class CorpusEntry
     {
         public string Word { get; set; }
         public int Value { get; set; }
